@@ -1,0 +1,142 @@
+<!-- <a [href]="decryptedurl">link</a>
+<a href="https://images.wallpaperscraft.com/image/earth_desert_cranny_212053_1920x1080.jpg" download>image</a><br>
+<a href="http://example.com/media.mp3" download>Download Your File</a> -->
+
+<style>
+
+
+  .gg {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 0;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .card-body {
+    padding: 0.7rem;
+  }
+  .card{
+    cursor: pointer;
+    background-color: #ffffff00;
+    border: none;
+  }
+ .card img{
+   border-radius: 10px !important;
+ }
+</style>
+
+
+
+
+
+
+<div class="container" style="padding-bottom: 85px;">
+
+  <div class="container">
+    <div class="row text-center pt-4 pb-4">
+      <input type="text" class="form-control" value="" (keyup.enter)="OnInput($event)"
+        placeholder="Enter name and hit enter">
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row ">
+      <h1 style="font-size: 1.4rem;">Hindi Songs</h1>
+    </div>
+  </div>
+
+  <app-loadimgsnippet *ngIf="showspinner"></app-loadimgsnippet>
+
+  <div class="container-fluid">
+    <div class="row pt-3 pl-0 pr-0">
+
+
+      <div class="col-6 col-md d-flex justify-content-center p-0" *ngFor="let item of songslist.new_albums">
+
+        <div class="card" style="width: 10rem;padding: 0;margin:5px;"
+          routerLink="/songdetails/{{item.perma_url | strsub:item.perma_url:12}}">
+          <img src="{{item.image | strformat:item.image:'-150x150':'-500x500'}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title gg text-center">{{item.title}}</h5>
+            <!-- <a routerLink="/songdetails/{{item.perma_url | strsub:item.perma_url:12}}"><h5 class="card-title gg text-center" >{{item.title}}</h5></a> -->
+            <!-- <p class="card-text">{{item.perma_url | strsub:item.perma_url:12}}</p> -->
+            <!-- <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Go somewhere</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <div *ngIf="sls; else searched">
+      <div class="container-fluid">
+        <div class="row pt-5">
+          <h1 style="font-size: 1.4rem;">Telugu Songs</h1>
+        </div>
+      </div>
+
+      <!-- //telugu songs list -->
+      <div class="container-fluid">
+        <div class="row pt-3 pl-0 pr-0">
+          <div class=" col-6 col-md d-flex justify-content-center p-0" *ngFor="let item of songlisttelugu.results ">
+            <div class="card" style="width: 10rem;padding: 0;margin: 5px;"
+              routerLink="/songdetails/{{item.perma_url | strsub:item.perma_url:12}}">
+              <img src="{{item.image | strformat:item.image:'-150x150':'-500x500'}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title gg text-center">{{item.title}}</h5>
+                <!-- <a routerLink="/songdetails/{{item.perma_url | strsub:item.perma_url:12}}"><h5 class="card-title gg" >{{item.title}}</h5></a> -->
+                <!-- <p class="card-text">{{item.perma_url | strsub:item.perma_url:12}}</p> -->
+                <!-- <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <ng-template #searched>
+    <div class="container">
+      <div class="row pt-3 pl-0 pr-0">
+        <div class="col-6 col-md d-flex justify-content-center p-0" *ngFor="let item of songlistsearched.results">
+          <div class="card" style="width: 10rem;padding: 0;margin: 5px;"
+            routerLink="/songdetails/{{item.perma_url | strsub:item.perma_url:12}}">
+            <img src="{{item.image | strformat:item.image:'-150x150':'-500x500'}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title gg text-center">{{item.title}}</h5>
+              <!-- <a routerLink="/songdetails/{{item.perma_url | strsub:item.perma_url:12}}"><h5 class="card-title gg" >{{item.title}}</h5></a> -->
+              <!-- <p class="card-text">{{item.perma_url | strsub:item.perma_url:12}}</p> -->
+              <!-- <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Go somewhere</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

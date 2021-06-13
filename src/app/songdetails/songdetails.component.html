@@ -1,0 +1,100 @@
+
+
+<!-- <div class="container">
+   <div class="row">
+      <div class="col-md-3">
+         <img src="{{songdetails.image | strformat:songdetails.image:'-150x150':'-500x500'}}" alt="" width="250px" height="250px">
+      </div>
+      <div class="col-md-9" >
+         <ul>
+            <li *ngFor="let item of songdetails.list">
+               <a href="{{item.more_info.encrypted_media_url | decrypt:item.more_info.encrypted_media_url:'_320'}}" target="_blank">{{item.title}}</a>
+            </li>
+         </ul>
+
+      </div>
+   </div>
+</div> -->
+<style>
+  .fa{
+    color: #007bff;
+  }
+  img{
+    border-radius: 10px;
+    box-shadow: 6px 22px 29px -3px rgba(216,216,216,0.69);
+-webkit-box-shadow: 6px 22px 29px -3px rgba(216,216,216,0.69);
+-moz-box-shadow: 6px 22px 29px -3px rgba(216,216,216,0.69);
+  }
+</style>
+<app-loadimgsnippet *ngIf="showspinner"></app-loadimgsnippet>
+<div *ngIf="songdetails">
+   <div class="container-fluid" style="padding-bottom: 85px;">
+       <div class="row pt-4">
+           <div class="col-md-3 col-sm-12 d-flex flex-column align-items-center">
+               <img src="{{songdetails.image | strformat:songdetails.image:'-150x150':'-500x500'}}" class="img-fluid mt-4" alt="">
+               <!-- <p style="font-size: 24px;
+               padding-top: 8px;
+               font-weight: 500;margin-bottom: 0;">{{song_details.primary_artists}}</p> -->
+           </div>
+           <div class="col-md-9 col-sm-12">
+               <div class="row pt-4">
+                   <div class="col">
+                       <h3 style="color:#333;">{{songdetails.title | strformat2:songdetails.title:'&quot\;':'"'}} Songs</h3>
+                       <div class="table-responsive">
+                           <table class="table table-sm table-hover" style="text-align: center;color: #666;">
+                               <thead>
+                                 <tr>
+                                   <th>No</th>
+                                   <th class="col-sm-8">Song name</th>
+                                   <!-- <th >Artist</th> -->
+                                   <th>Add</th>
+                                   <th>Download</th>
+
+                                 </tr>
+                               </thead>
+                               <tbody  *ngFor="let item of songdetails.list;index as i" class="align-center" >
+                                 <tr>
+
+                                     <th>{{i+1}}</th>
+                                   <th>{{item.title | strformat2:item.title:'&quot\;':'"'}}</th>
+                                   <!-- <td>{{m.primary_artists}}</td> -->
+                                   <!-- <th>
+                                    <audio controls>
+
+                                      <source src="{{item.more_info.encrypted_media_url | decrypt:item.more_info.encrypted_media_url:'_320'}}" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                    </audio>
+                                   </th> -->
+
+                                   <!-- <th><a href="{{item.more_info.encrypted_media_url | decrypt:item.more_info.encrypted_media_url:'_320'}}" download="ddd" target="_blank"><i class="fa fa-cloud-download" aria-hidden="true" style="font-size: 25px"></i></a></th> -->
+                                   <th (click)="add(item)"><i class="fa fa-plus" aria-hidden="true" style="font-size: 20px"></i></th>
+                                   <th (click)="playsong(item)"><i class="fa fa-play" aria-hidden="true" style="font-size: 20px"></i></th>
+                                   <th><a href="{{item.more_info.encrypted_media_url | decrypt:item.more_info.encrypted_media_url:'_320'}}" download="ddd" target="_blank"><i class="fa fa-cloud-download" aria-hidden="true" style="font-size: 25px"></i></a></th>
+
+
+                                 </tr>
+
+                               </tbody>
+                             </table>
+                       </div>
+
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+<!-- <h2>
+  Count in component1   =  {{ count }}
+</h2>
+<button (click)='nextCount()'>Next Count from component1</button> -->

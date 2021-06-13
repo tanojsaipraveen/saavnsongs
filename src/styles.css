@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  /* background-image: radial-gradient( circle farthest-corner at 16.5% 28.1%,  rgba(15,27,49,1) 0%, rgba(0,112,218,1) 90% ); */
+  /* background-color: black; */
+
+/* color: white; */
+
+}
+
+.slider::-webkit-slider-thumb {
+     -webkit-appearance: none;
+     appearance: none;
+
+     background: #000000 !important;
+     cursor: pointer;
+   }
+
+.cover img {
+     border-radius: 10px !important;
+     box-shadow: 6px 22px 29px -3px rgba(216,216,216,0.69) !important;
+-webkit-box-shadow: 6px 22px 29px -3px rgba(216,216,216,0.69) !important;
+-moz-box-shadow: 6px 22px 29px -3px rgba(216,216,216,0.69) !important;
+}
+.wrapper .container .details .title{
+      margin: 0 !important;
+      font-weight: bold;
+}
+
+
+
+.slidecontainer .time-line{
+     margin-bottom: 2px !important;
+}
+
+.wrapper .container .controls {
+
+
+     margin-top: 5px !important;
+ }
+ .wrapper .container  .controls  svg {
+     cursor: pointer;
+     height: 25px;
+     margin: 0 0px !important;
+     width: 25px;
+ }
+
+@media (min-width:320px){
+     .cover img {
+          max-width: 80px !important;
+          max-height: 80px !important;
+     }
+     .wrapper {
+          /* background-color: rgb(40, 42, 53); */
+          box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+
+          background-color: rgba(255, 255, 255, .80) !important;
+          backdrop-filter: blur(5px);
+          width: 100vw;
+          height: 95px !important;
+
+      }
+      .slidecontainer .time-line{
+           font-size: 12px !important;
+      }
+      .wrapper .container .details .title {
+
+          font-size: 12px !important;
+      }
+      .wrapper .container  .controls  svg {
+
+         width: 18px !important;
+      }
+}
